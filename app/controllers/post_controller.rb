@@ -12,7 +12,8 @@ class PostController < ApplicationController
     
     Post.create(
       title: @title,
-      content: @content
+      content: @content,
+      user_id: session[:user_id]
     )
     redirect_to '/'
   end
@@ -20,6 +21,7 @@ class PostController < ApplicationController
   def show
     @id = params[:id]
     @post = Post.find(@id)
+    
   end
   
   def modify

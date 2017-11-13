@@ -7,6 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  
+<p><%= flash[:notice] %></p>
+
+<% if session[:user_id] %>
+  <a href="/user/logout">로그아웃</a>
+  <a href="/user/index">모든 회원 정보</a>
+<% else %>
+  <a href="/user/new">회원가입</a>
+  <a href="/user/login">로그인</a>
+<% end %>
 
 <%= yield %>
 

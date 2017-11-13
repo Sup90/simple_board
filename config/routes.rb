@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  root 'post#index'
+  
   get 'user/index'
 
   get 'user/new'
@@ -6,8 +9,14 @@ Rails.application.routes.draw do
   get 'user/create'
 
   get 'user/show'
+  
+  get 'user/login'
+  
+  get 'user/login_process'
+  
+  get 'user/logout'
 
-  root 'post#index'
+  
   
   get 'post/index'
 
