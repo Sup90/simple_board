@@ -22,6 +22,8 @@ class PostController < ApplicationController
     @id = params[:id]
     @post = Post.find(@id)
     
+    @comments = @post.comments # Comment.all
+    
   end
   
   def modify
@@ -50,5 +52,14 @@ class PostController < ApplicationController
     @post.destroy
     
     redirect_to "/"
+  end
+  
+  def create_comment
+    @comment = params[:comment]
+    Comment.create(
+      content: @comment,
+      post_id: params[:post_id]
+    )
+    redirect_to :back
   end
 end
